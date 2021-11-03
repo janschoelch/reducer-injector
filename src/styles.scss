@@ -1,0 +1,38 @@
+@use '~@angular/material' as mat;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
+
+@import '~@angular/material/theming';
+
+@import 'themes/light-theme.scss';
+@import 'themes/dark-theme.scss';
+
+$app-typography: mat.define-typography-config(
+	$font-family: 'Ubuntu',
+);
+
+@include mat.core($app-typography);
+
+@mixin custom-components-theme($theme) {
+}
+
+.light-theme {
+	@include mat.all-component-colors($app-light-theme);
+	@include custom-components-theme($app-light-theme);
+}
+
+.dark-theme {
+	@include mat.all-component-colors($app-dark-theme);
+	@include custom-components-theme($app-dark-theme);
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+}
