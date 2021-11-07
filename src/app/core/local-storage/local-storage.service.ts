@@ -11,7 +11,11 @@ export class LocalStorageService {
 	}
 
 	getItem(key: string) {
-		return JSON.parse(localStorage.getItem(`${APP_PREFIX}${key}`) || '{}');
+		const item = localStorage.getItem(`${APP_PREFIX}${key}`);
+		if (item) {
+			return JSON.parse(item);
+		}
+		return undefined;
 	}
 
 	removeItem(key: string) {

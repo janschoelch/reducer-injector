@@ -14,9 +14,9 @@ export function settingsConfigFactory(
 	localStorageService: LocalStorageService
 ): StoreConfig<fromSettings.State> {
 	return {
-		initialState: localStorageService.getItem(
-			fromSettings.FEATURE_SETTINGS_KEY
-		),
+		initialState:
+			localStorageService.getItem(fromSettings.FEATURE_SETTINGS_KEY) ??
+			fromSettings.initialState,
 	};
 }
 
